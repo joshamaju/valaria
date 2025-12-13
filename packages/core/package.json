@@ -1,0 +1,55 @@
+{
+  "name": "kitel",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "homepage": "https://github.com/joshamaju/kitel",
+  "author": "Joshua Amaju <joshsemail4work@gmail.com>",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshamaju/kitel.git"
+  },
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "docs": "docgen",
+    "dev": "tsc --watch",
+    "test:others": "vitest run",
+    "test:browser": "playwright test",
+    "test": "pnpm run test:others && pnpm run test:browser"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./Pager": {
+      "types": "./dist/Pager.d.ts",
+      "import": "./dist/Pager.js"
+    },
+    "./Pagination": {
+      "types": "./dist/Pagination.d.ts",
+      "import": "./dist/Pagination.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "packageManager": "pnpm@10.14.0",
+  "devDependencies": {
+    "@changesets/cli": "^2.29.8",
+    "@effect/docgen": "^0.5.2",
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.1",
+    "@vitest/browser-playwright": "^4.0.15",
+    "jsdom": "^27.3.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15"
+  }
+}
