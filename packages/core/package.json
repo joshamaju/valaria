@@ -1,8 +1,8 @@
 {
-  "name": "kitel",
-  "version": "1.0.0",
-  "description": "",
+  "name": "foundryjs",
   "type": "module",
+  "version": "0.0.0",
+  "description": "The Javascript UI toolbelt",
   "homepage": "https://github.com/joshamaju/kitel",
   "author": "Joshua Amaju <joshsemail4work@gmail.com>",
   "publishConfig": {
@@ -10,17 +10,28 @@
   },
   "repository": {
     "type": "git",
+    "directory": "packages/core",
     "url": "https://github.com/joshamaju/kitel.git"
   },
   "files": [
     "dist",
     "package.json"
   ],
+  "keywords": [
+    "pager",
+    "carousel",
+    "pagination"
+  ],
+  "license": "MIT",
+  "packageManager": "pnpm@10.14.0",
   "scripts": {
     "build": "tsc",
     "docs": "docgen",
     "dev": "tsc --watch",
+    "prepublish": "pnpm build",
     "test:others": "vitest run",
+    "version": "changeset version",
+    "release": "changeset publish",
     "test:browser": "playwright test",
     "test": "pnpm run test:others && pnpm run test:browser"
   },
@@ -39,9 +50,6 @@
     },
     "./package.json": "./package.json"
   },
-  "keywords": [],
-  "license": "MIT",
-  "packageManager": "pnpm@10.14.0",
   "devDependencies": {
     "@changesets/cli": "^2.29.8",
     "@effect/docgen": "^0.5.2",

@@ -8,6 +8,13 @@ export class Pager<T = any> {
   ) {}
 
   compute() {
+    /**
+     * Uses a sliding window technique. Calculates how many items can
+     * fit within the viewport, taking into account gap between items.
+     *
+     * When no more items can fit the available space, we slide the window and perform
+     * the calculations again until a page is assigned to all nodes.
+     */
     let counter = 0;
     let page: T[] = [];
     const items = this.elements;

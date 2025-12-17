@@ -1,13 +1,16 @@
 {
-  "name": "kitel",
+  "name": "foundryjs",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "The Javascript UI toolbelt",
+  "homepage": "https://github.com/joshamaju/kitel",
+  "author": "Joshua Amaju <joshsemail4work@gmail.com>",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "pnpm test -r",
+    "release": "changeset publish",
+    "version": "changeset version",
+    "build": "tsc -b tsconfig.build.json"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "packageManager": "pnpm@10.14.0"
 }
