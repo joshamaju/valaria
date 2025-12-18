@@ -32,8 +32,9 @@
     "test:others": "vitest run",
     "version": "changeset version",
     "release": "changeset publish",
-    "test:browser": "playwright test",
-    "test": "pnpm run test:others && pnpm run test:browser"
+    "playwright:install": "pnpm exec playwright install",
+    "test": "pnpm run test:others && pnpm run test:browser",
+    "test:browser": "pnpm run playwright:install && playwright test"
   },
   "exports": {
     ".": {
