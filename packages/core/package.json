@@ -1,7 +1,7 @@
 {
   "name": "valaria",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The Javascript UI toolbelt",
   "homepage": "https://github.com/joshamaju/valaria",
   "author": "Joshua Amaju <joshsemail4work@gmail.com>",
