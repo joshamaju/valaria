@@ -1,9 +1,9 @@
 {
-  "name": "kitel",
+  "name": "valaria",
   "type": "module",
   "version": "0.0.1",
   "description": "The Javascript UI toolbelt",
-  "homepage": "https://github.com/joshamaju/kitel",
+  "homepage": "https://github.com/joshamaju/valaria",
   "author": "Joshua Amaju <joshsemail4work@gmail.com>",
   "publishConfig": {
     "access": "public"
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "directory": "packages/core",
-    "url": "https://github.com/joshamaju/kitel.git"
+    "url": "https://github.com/joshamaju/valaria.git"
   },
   "files": [
     "dist",

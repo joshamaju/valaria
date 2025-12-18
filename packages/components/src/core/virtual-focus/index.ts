@@ -18,6 +18,7 @@ export class VirtualFocus extends Widget {
     const event = this.emit("change", {
       detail: { target: element },
       cancelable: true,
+      bubbles: true,
     });
 
     if (event.defaultPrevented) return;
@@ -80,10 +81,8 @@ export class VirtualFocus extends Widget {
   };
 
   protected handleDocumentKeyDown = (event: KeyboardEvent) => {
-    const options = this.getChildren();
+    const options = [...this.getChildren()];
     const currentOption = this.currentOption ?? options[0];
-
-    event.preventDefault();
 
     if (
       [
@@ -95,48 +94,25 @@ export class VirtualFocus extends Widget {
         "End",
       ].includes(event.key)
     ) {
-      const options_ = [...options];
-
       // @ts-expect-error
-      const currentIndex = options_.indexOf(currentOption);
+      const currentIndex = options.indexOf(currentOption);
       const loop = this.hasAttribute("data-loop");
 
       let newIndex = Math.max(0, currentIndex);
 
       if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-        // newIndex = currentIndex + 1;
-
-        // if (newIndex > allOptions.length - 1) {
-        //   if (loop) {
-        //     newIndex = 0;
-        //   } else {
-        //     newIndex = currentIndex;
-        //   }
-        // }
-
-        newIndex = findNextFocusable(options_, currentIndex, "forward", loop);
+        newIndex = findNextFocusable(options, currentIndex, "forward", loop);
       } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-        // newIndex = currentIndex - 1;
-
-        // if (newIndex < 0) {
-        //   if (loop) {
-        //     newIndex = allOptions.length - 1;
-        //   } else {
-        //     newIndex = currentIndex;
-        //   }
-        // }
-
-        newIndex = findNextFocusable(options_, currentIndex, "backward", loop);
+        newIndex = findNextFocusable(options, currentIndex, "backward", loop);
       } else if (event.key === "Home") {
-        const focusables = options_.filter((_) => isFocusable(_));
-        newIndex = options_.indexOf(focusables[0]!);
-        // newIndex = 0;
+        const focusables = options.filter((_) => isFocusable(_));
+        newIndex = options.indexOf(focusables[0]!);
       } else if (event.key === "End") {
-        const focusables = options_.filter((_) => isFocusable(_));
-        newIndex = options_.indexOf(focusables[focusables.length - 1]!);
+        const focusables = options.filter((_) => isFocusable(_));
+        newIndex = options.indexOf(focusables[focusables.length - 1]!);
       }
 
-      const option = options_[newIndex] as HTMLElement;
+      const option = options[newIndex] as HTMLElement;
 
       this.activeElement = option;
     }
