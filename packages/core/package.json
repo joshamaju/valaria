@@ -1,7 +1,7 @@
 {
-  "name": "foundryjs",
+  "name": "kitel",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "The Javascript UI toolbelt",
   "homepage": "https://github.com/joshamaju/kitel",
   "author": "Joshua Amaju <joshsemail4work@gmail.com>",

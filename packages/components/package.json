@@ -1,0 +1,23 @@
+{
+  "name": "@kitel/components",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./VirtualFocus": "./dist/VirtualFocus.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.14.0",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "tabbable": "^6.3.0"
+  }
+}

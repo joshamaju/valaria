@@ -15,7 +15,7 @@ export class Pager<T = any> {
      * When no more items can fit the available space, we slide the window and perform
      * the calculations again until a page is assigned to all nodes.
      */
-    let counter = 0;
+    let counter = 0; // tracks the current page
     let page: T[] = [];
     const items = this.elements;
     let accumulator: T[][] = [];

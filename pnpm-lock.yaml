@@ -8,6 +8,16 @@ importers:
 
   .: {}
 
+  packages/components:
+    dependencies:
+      tabbable:
+        specifier: ^6.3.0
+        version: 6.3.0
+    devDependencies:
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
   packages/core:
     devDependencies:
       '@changesets/cli':
@@ -37,6 +47,28 @@ importers:
 
   playground/basic:
     dependencies:
+      kitel:
+        specifier: workspace:*
+        version: link:../../packages/core
+    devDependencies:
+      '@tailwindcss/vite':
+        specifier: ^4.1.18
+        version: 4.1.18(vite@7.2.7(@types/node@25.0.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0))
+      tailwindcss:
+        specifier: ^4.1.18
+        version: 4.1.18
+      typescript:
+        specifier: ~5.9.3
+        version: 5.9.3
+      vite:
+        specifier: ^7.2.4
+        version: 7.2.7(@types/node@25.0.1)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)
+
+  playground/virtual-focus:
+    dependencies:
+      '@kitel/components':
+        specifier: workspace:*
+        version: link:../../packages/components
       kitel:
         specifier: workspace:*
         version: link:../../packages/core
@@ -1629,6 +1661,9 @@ packages:
 
   symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
+
+  tabbable@6.3.0:
+    resolution: {integrity: sha512-EIHvdY5bPLuWForiR/AN2Bxngzpuwn1is4asboytXtpTgsArc+WmSJKVLlhdh71u7jFcryDqB2A8lQvj78MkyQ==}
 
   tailwindcss@4.1.18:
     resolution: {integrity: sha512-4+Z+0yiYyEtUVCScyfHCxOYP06L5Ne+JiHhY2IjR2KWMIWhJOYZKLSGZaP5HkZ8+bY0cxfzwDE5uOmzFXyIwxw==}
@@ -3313,6 +3348,8 @@ snapshots:
   strip-color@0.1.0: {}
 
   symbol-tree@3.2.4: {}
+
+  tabbable@6.3.0: {}
 
   tailwindcss@4.1.18: {}
 
