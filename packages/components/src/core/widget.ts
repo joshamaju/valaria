@@ -23,3 +23,7 @@ export class Widget extends HTMLElement {
     return event;
   }
 }
+
+export function attr(name: string) {
+  return `data-va-${name}`;
+}

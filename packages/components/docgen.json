@@ -1,5 +1,5 @@
 {
   "$schema": "node_modules/@effect/docgen/schema.json",
-  "exclude": ["src/core/**/*.ts"],
+  "exclude": ["src/core/**/*.ts", "src/**/define.ts"],
   "outDir": "docs-api"
 }

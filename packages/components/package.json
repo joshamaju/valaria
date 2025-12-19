@@ -31,7 +31,11 @@
   "exports": {
     ".": "./dist/index.js",
     "./package.json": "./package.json",
-    "./VirtualFocus": "./dist/VirtualFocus.js"
+    "./VirtualFocus": "./dist/VirtualFocus/index.js",
+    "./VirtualFocus/AllAxis": "./dist/VirtualFocus/AllAxis/index.js",
+    "./VirtualFocus/LinearAxis": "./dist/VirtualFocus/LinearAxis/index.js",
+    "./VirtualFocus/AllAxis/install": "./dist/VirtualFocus/AllAxis/define.js",
+    "./VirtualFocus/LinearAxis/install": "./dist/VirtualFocus/LinearAxis/define.js"
   },
   "keywords": [
     "dom",
