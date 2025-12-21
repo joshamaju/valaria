@@ -83,9 +83,6 @@ export class VirtualFocus extends Widget {
   };
 
   protected handleDocumentKeyDown = (event: KeyboardEvent) => {
-    const options = [...this.getChildren()];
-    const currentOption = this.currentOption;
-
     if (
       [
         "ArrowUp",
@@ -97,6 +94,7 @@ export class VirtualFocus extends Widget {
       ].includes(event.key)
     ) {
       const loop = this.hasAttribute("loop");
+      const options = [...this.getChildren()];
       const focusables = options.filter((_) => isFocusable(_));
 
       // @ts-expect-error
@@ -115,8 +113,6 @@ export class VirtualFocus extends Widget {
       }
 
       if (!newFocusable) return;
-
-      // const option = options[newIndex] as HTMLElement;
 
       this.activeElement = newFocusable;
     }

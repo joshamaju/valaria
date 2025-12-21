@@ -1,5 +1,3 @@
-import { isFocusable } from "tabbable";
-
 // export function findNextFocusable(
 //   elements: Element[],
 //   currentIndex: number,
@@ -46,38 +44,63 @@ import { isFocusable } from "tabbable";
 //   return next_index;
 // }
 
+// export function findNextFocusable(
+//   elements: (HTMLElement | Element)[],
+//   currentIndex: number,
+//   direction: "forward" | "backward",
+//   loop = false,
+// ) {
+//   let nextFocusable = null;
+
+//   const iterator = direction === "forward" ? 1 : -1;
+//   let nextIndex = currentIndex + iterator;
+
+//   while (currentIndex < elements.length) {
+//     nextFocusable = elements[nextIndex] || null;
+
+//     if (nextFocusable === null) {
+//       // This is where wrapping happens. If we're moving forward and get to the end, then we jump to the beginning. If we're moving backward and get to the start, then we jump to the end.
+//       if (loop) {
+//         if (direction === "forward") {
+//           nextFocusable = elements[0];
+//         } else {
+//           nextFocusable = elements[elements.length - 1];
+//         }
+//       }
+
+//       break;
+//     }
+
+//     if (isFocusable(nextFocusable)) {
+//       break;
+//     }
+
+//     nextIndex += iterator;
+//   }
+
+//   return nextFocusable;
+// }
+
 export function findNextFocusable(
   elements: (HTMLElement | Element)[],
   currentIndex: number,
   direction: "forward" | "backward",
   loop = false,
 ) {
-  let nextFocusable = null;
-
   const iterator = direction === "forward" ? 1 : -1;
   let nextIndex = currentIndex + iterator;
 
-  while (currentIndex < elements.length) {
-    nextFocusable = elements[nextIndex] || null;
+  let nextFocusable = elements[nextIndex] || undefined;
 
-    if (nextFocusable === null) {
-      // This is where wrapping happens. If we're moving forward and get to the end, then we jump to the beginning. If we're moving backward and get to the start, then we jump to the end.
-      if (loop) {
-        if (direction === "forward") {
-          nextFocusable = elements[0];
-        } else {
-          nextFocusable = elements[elements.length - 1];
-        }
+  if (!nextFocusable) {
+    // This is where wrapping happens. If we're moving forward and get to the end, then we jump to the beginning. If we're moving backward and get to the start, then we jump to the end.
+    if (loop) {
+      if (direction === "forward") {
+        nextFocusable = elements[0];
+      } else {
+        nextFocusable = elements[elements.length - 1];
       }
-
-      break;
     }
-
-    if (isFocusable(nextFocusable)) {
-      break;
-    }
-
-    nextIndex += iterator;
   }
 
   return nextFocusable;
