@@ -26,7 +26,7 @@
     "test:others": "vitest run",
     "version": "changeset version",
     "release": "changeset publish",
-    "test:browser": "vitest --config=vitest.browser.config.ts"
+    "postinstall": "pnpm exec playwright install"
   },
   "exports": {
     ".": "./dist/index.js",
@@ -35,6 +35,8 @@
   "keywords": [
     "dom",
     "component",
+    "element",
+    "custom element",
     "web",
     "javascript",
     "ui"
