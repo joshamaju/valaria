@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Scroll Example: Svelte</title>
+    <link rel="stylesheet" href="../shared.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "svelte": "https://esm.sh/svelte@5.38.7",
+          "svelte/compiler": "https://esm.sh/svelte@5.38.7/compiler",
+          "svelte/internal/": "https://esm.sh/svelte@5.38.7/internal/",
+          "esm-env": "https://esm.sh/esm-env@1.2.2"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main></main>
+    <script type="module" src="../register.js"></script>
+    <script type="module" src="./svelte.js"></script>
+  </body>
+</html>
