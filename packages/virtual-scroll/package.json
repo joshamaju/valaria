@@ -1,0 +1,51 @@
+{
+  "name": "@valaria/virtual-scroll",
+  "version": "0.0.0",
+  "description": "",
+  "homepage": "https://github.com/joshamaju/valaria",
+  "author": "Joshua Amaju <joshsemail4work@gmail.com>",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "directory": "packages/virtual-scroll",
+    "url": "https://github.com/joshamaju/valaria.git"
+  },
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "docs": "docgen",
+    "test": "vitest run",
+    "dev": "tsc --watch",
+    "prepublish": "pnpm build",
+    "test:others": "vitest run",
+    "version": "changeset version",
+    "release": "changeset publish",
+    "test:browser": "vitest --config=vitest.browser.config.ts"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "keywords": [
+    "dom",
+    "component",
+    "web",
+    "javascript",
+    "ui"
+  ],
+  "license": "MIT",
+  "packageManager": "pnpm@10.14.0",
+  "devDependencies": {
+    "@changesets/cli": "^2.29.8",
+    "@effect/docgen": "^0.5.2",
+    "@vitest/browser-playwright": "^4.0.15",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15"
+  }
+}
