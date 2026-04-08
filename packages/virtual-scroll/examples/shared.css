@@ -303,12 +303,171 @@ virtual-scroll {
   padding: 0.25rem 0;
 }
 
+.table-shell {
+  display: grid;
+  gap: 0;
+  border: 1px solid rgba(39, 28, 16, 0.14);
+  border-radius: 18px;
+  overflow: clip;
+  background: #fffdfa;
+}
+
+.table-head,
+.table-row {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.table-head {
+  padding: 0.9rem 1rem;
+  background: linear-gradient(180deg, #efe5d5 0%, #e5d6bd 100%);
+  border-bottom: 1px solid rgba(80, 57, 24, 0.12);
+  font: 700 0.9rem/1.2 "IBM Plex Mono", monospace;
+  color: #463d31;
+}
+
+.table-body {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.table-row {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid rgba(80, 57, 24, 0.08);
+  background: #fffdfa;
+}
+
+.table-row:nth-child(2n) {
+  background: #fbf6ee;
+}
+
+.table-cell {
+  min-width: 0;
+  color: #4b463f;
+}
+
+.table-primary {
+  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  font-weight: 700;
+  color: #2d2a24;
+}
+
+.sheet-host {
+  overflow: auto;
+  height: 500px;
+  padding: 12px;
+}
+
+.sheet-row {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+  margin: 0 0 12px;
+}
+
+.sheet-row-label {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #efe5d5 0%, #dfccb0 100%);
+  border: 1px solid rgba(80, 57, 24, 0.12);
+  font: 700 0.82rem/1 "IBM Plex Mono", monospace;
+  color: #524739;
+}
+
+.sheet-strip {
+  display: block;
+  white-space: nowrap;
+  padding: 0;
+}
+
+.sheet-cell {
+  display: inline-grid;
+  gap: 0.35rem;
+  align-content: center;
+  min-height: 54px;
+  margin-right: 10px;
+  padding: 0.7rem 0.9rem;
+  border-radius: 14px;
+  border: 1px solid rgba(80, 57, 24, 0.1);
+  background: linear-gradient(180deg, #fffefb 0%, #f3ebdd 100%);
+  color: #4b463f;
+}
+
+.sheet-cell strong {
+  font: 700 0.82rem/1 "IBM Plex Mono", monospace;
+  color: #3f382f;
+}
+
 .debug-panel {
   display: grid;
   gap: 0.5rem;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.9rem;
   color: #3c372f;
+}
+
+.observer-log {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  background: rgba(29, 29, 27, 0.05);
+  color: #3c372f;
+  font: 0.9rem/1.45 "IBM Plex Mono", monospace;
+}
+
+.observer-card__status {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.9rem;
+}
+
+.sticky-host {
+  padding-top: 0;
+}
+
+.sticky-section-header {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 12px;
+  padding: 0.85rem 1rem;
+  border-radius: 0 0 16px 16px;
+  border: 1px solid rgba(27, 94, 90, 0.18);
+  background: linear-gradient(135deg, #1b5e5a 0%, #2e7167 100%);
+  color: #fffaf0;
+  box-shadow: 0 16px 28px rgba(27, 94, 90, 0.18);
+}
+
+.sticky-section-header span {
+  font: 700 0.78rem/1 "IBM Plex Mono", monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.sticky-section-header strong {
+  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  font-size: 1.05rem;
+}
+
+.sticky-section-row {
+  margin-left: 0.5rem;
 }
 
 .external-scroll-root {

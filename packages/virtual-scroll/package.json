@@ -1,7 +1,7 @@
 {
   "name": "@valaria/virtual-scroll",
   "version": "0.0.0",
-  "description": "",
+  "description": "A direct-child virtual scrolling custom element with logical host DOM semantics",
   "homepage": "https://github.com/joshamaju/valaria",
   "author": "Joshua Amaju <joshsemail4work@gmail.com>",
   "type": "module",
@@ -15,24 +15,35 @@
   },
   "files": [
     "dist",
+    "README.md",
     "package.json"
   ],
   "scripts": {
     "build": "tsc",
     "docs": "docgen",
-    "test": "vitest run",
     "dev": "tsc --watch",
-    "prepublish": "pnpm build",
+    "prepublishOnly": "pnpm build",
     "test:others": "vitest run",
     "version": "changeset version",
     "release": "changeset publish",
-    "postinstall": "pnpm exec playwright install"
+    "test": "pnpm playwright:install && vitest run",
+    "playwright:install": "pnpm exec playwright install",
+    "test:browser": "pnpm run playwright:install && vitest run"
   },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
     "./package.json": "./package.json"
   },
+  "sideEffects": false,
   "keywords": [
+    "virtual-scroll",
+    "virtualization",
+    "scrolling",
     "dom",
     "component",
     "element",
