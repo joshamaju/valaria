@@ -10,6 +10,8 @@ const ACTIVE_ATTRIBUTE = attr("virtual-focus-active");
 export class VirtualFocus extends Widget {
   static TAG_NAME = "va-virtual-focus";
 
+  static observedAttributes = ["mount", "wrap", "loop", "preserve"];
+
   protected currentOption?: Element | HTMLElement | undefined | null;
 
   get activeElement() {
@@ -38,7 +40,19 @@ export class VirtualFocus extends Widget {
     if (this.hasAttribute("mount")) this.mount();
   }
 
-  mount() {
+  attributeChangedCallback(name: any, oldValue: any, newValue: any) {
+    if (name === "mount") {
+      if (this.hasAttribute("mount")) {
+        this.mount();
+      } else {
+        this.unmount();
+      }
+    }
+  }
+
+  public mount() {
+    console.log("mounted");
+
     this.activeElement =
       this.currentOption ??
       this.querySelector(`[${attr("virtual-focus-current")}]`);
@@ -46,14 +60,16 @@ export class VirtualFocus extends Widget {
     const children = this.getChildren();
 
     children.forEach((_) => {
-      _.addEventListener(ITEM_FOCUS_EVENT, this.#itemFocus);
-      _.addEventListener(ITEM_FOCUSOUT_EVENT, this.#itemFocusOut);
+      _.addEventListener(ITEM_FOCUS_EVENT, this.itemFocus);
+      _.addEventListener(ITEM_FOCUSOUT_EVENT, this.itemFocusOut);
     });
 
     document.addEventListener("keydown", this.handleDocumentKeyDown);
   }
 
-  unmount() {
+  public unmount() {
+    console.log("unmounted");
+
     this.currentOption?.removeAttribute(ACTIVE_ATTRIBUTE);
 
     if (!this.hasAttribute("preserve")) this.currentOption = undefined;
@@ -61,8 +77,8 @@ export class VirtualFocus extends Widget {
     const children = this.getChildren();
 
     children.forEach((_) => {
-      _.removeEventListener(ITEM_FOCUS_EVENT, this.#itemFocus);
-      _.removeEventListener(ITEM_FOCUSOUT_EVENT, this.#itemFocusOut);
+      _.removeEventListener(ITEM_FOCUS_EVENT, this.itemFocus);
+      _.removeEventListener(ITEM_FOCUSOUT_EVENT, this.itemFocusOut);
     });
 
     document.removeEventListener("keydown", this.handleDocumentKeyDown);
@@ -72,12 +88,12 @@ export class VirtualFocus extends Widget {
     return this.querySelectorAll(`[${attr("virtual-focus")}]`);
   }
 
-  #itemFocus = (e: Event) => {
+  protected itemFocus = (e: Event) => {
     e.stopPropagation();
     this.activeElement = e.target as HTMLElement;
   };
 
-  #itemFocusOut = (e: Event) => {
+  protected itemFocusOut = (e: Event) => {
     e.stopPropagation();
     this.activeElement = undefined;
   };
