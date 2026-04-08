@@ -1,6 +1,6 @@
 {
   "name": "@valaria/virtual-scroll",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A direct-child virtual scrolling custom element with logical host DOM semantics",
   "homepage": "https://github.com/joshamaju/valaria",
   "author": "Joshua Amaju <joshsemail4work@gmail.com>",
