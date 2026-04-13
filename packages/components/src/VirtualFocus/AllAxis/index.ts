@@ -8,4 +8,4 @@ export {
    * @category constructor
    */
   VirtualFocusAllAxis,
-} from "../../core/virtual-focus/all-axis/index.js";
+} from "../../core/virtual-focus/all-axis.js";

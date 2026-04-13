@@ -1,7 +1,7 @@
 import { isTabbable } from "tabbable";
 import * as RovingIndex from "valaria/RovingIndex";
 
-import { VirtualFocus } from "../linear.js";
+import { VirtualFocus } from "./linear.js";
 
 const defaultCoordinates: RovingIndex.Coordinates = {
   rowIndex: 0,
