@@ -53,5 +53,8 @@
   },
   "dependencies": {
     "tabbable": "^6.3.0"
+  },
+  "peerDependencies": {
+    "valaria": "workspace:*"
   }
 }

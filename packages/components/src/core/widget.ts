@@ -17,7 +17,7 @@ export class Widget extends HTMLElement {
     define(tag, element, options);
   }
 
-  emit(type: string, init?: CustomEventInit<unknown> | undefined) {
+  protected emit(type: string, init?: CustomEventInit<unknown> | undefined) {
     const event = new CustomEvent(type, init);
     this.dispatchEvent(event);
     return event;

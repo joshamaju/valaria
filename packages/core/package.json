@@ -49,6 +49,10 @@
       "types": "./dist/Pagination.d.ts",
       "import": "./dist/Pagination.js"
     },
+    "./RovingIndex": {
+      "types": "./dist/RovingIndex.d.ts",
+      "import": "./dist/RovingIndex.js"
+    },
     "./package.json": "./package.json"
   },
   "devDependencies": {
